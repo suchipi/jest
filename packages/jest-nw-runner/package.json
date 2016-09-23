@@ -1,0 +1,17 @@
+{
+  "name": "jest-nw-runner",
+  "version": "15.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facebook/jest.git"
+  },
+  "license": "BSD-3-Clause",
+  "main": "build/index.html",
+  "dependencies": {
+    "jest-cli": "^15.1.1",
+    "jest-nw": "^15.1.1"
+  },
+  "scripts": {
+    "test": "../../packages/jest-cli/bin/jest.js"
+  }
+}
