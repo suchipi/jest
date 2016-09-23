@@ -16,6 +16,7 @@ const FakeTimers = require('jest-util').FakeTimers;
 const installCommonGlobals = require('jest-util').installCommonGlobals;
 const ModuleMocker = require('jest-mock');
 const {makeWindow} = require('jest-nw');
+const vm = require('vm');
 
 console.log('jest-environment-nw loaded');
 
@@ -35,6 +36,7 @@ class NWEnvironment {
 
     const url = config.testURL || 'about:blank';
     const global = this.global = makeWindow(url);
+    vm.createContext(this.global);
     installCommonGlobals(global, config.globals);
 
     this.moduleMocker = new ModuleMocker();
@@ -54,7 +56,7 @@ class NWEnvironment {
 
   runScript(script: Script): ?any {
     if (this.global) {
-      this.global.eval(script);
+      script.runInContext(this.global);
     }
     return null;
   }
