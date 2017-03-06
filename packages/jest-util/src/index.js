@@ -14,6 +14,7 @@ const Console = require('./Console');
 const FakeTimers = require('./FakeTimers');
 const NullConsole = require('./NullConsole');
 
+const addInstanceOfAlias = require('./addInstanceOfAlias');
 const clearLine = require('./clearLine');
 const fileExists = require('jest-file-exists');
 const formatTestResults = require('./formatTestResults');
@@ -53,6 +54,7 @@ module.exports = {
   Console,
   FakeTimers,
   NullConsole,
+  addInstanceOfAlias,
   clearLine,
   createDirectory,
   formatTestResults,
